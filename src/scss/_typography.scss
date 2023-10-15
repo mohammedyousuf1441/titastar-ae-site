@@ -1,0 +1,61 @@
+@use "./units&scaling" as *;
+
+// @each $color, $shades in $colors {
+//     @each $shade, $value in $shades {
+//       --clr-#{ $color }-#{  "" + $shade } : #{$value};
+//     }
+//   };
+
+// @each $fs in $type-scale {
+    
+// }
+
+
+/* @link https://utopia.fyi/type/calculator?c=284,10,1.125,1568,16,1.2,10,2,1920&s=0.78|0.5,1.2|1.5|2|2.4|2.9|3.44|4.4|4.9|6.2,s-l|2xs-m&g=s,l,xl,12 */
+
+:root {
+    /* font weights */
+    --fw-regular: 400;
+    --fw-bold: 600;
+    --fw-black: 900;
+
+    /* font families */
+    --font-main: "Aileron";
+    --font-secondary: "Anton";
+
+    /* text shadows */
+    --text-shadow-blue: 2px 2px 0px rgba(46, 137, 255, 0.40);
+    --text-shadow-h-section: 0px 4px 4px rgba(46, 137, 255, 0.40);
+    --text-shadow-card-title: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+  
+    /* font-sizes */
+    // --fs-xs: 0.6875rem;
+    // --fs-sm: 0.8125rem;
+    // --fs-ba: 1rem;
+    // --fs-lg: 1.1875rem;
+    // --fs-h6: 1.4375rem;
+    // --fs-h5: 1.75rem;
+    // --fs-h4: 2.0625rem;
+    // --fs-h3: 2.5rem;
+    // --fs-h2: 3rem;
+    // --fs-h1: 3.5625rem;
+    // --fs-d3: 4.3125rem;
+    // --fs-d2: 5.1875rem;
+    // --fs-d1: 6.1875rem;
+
+    // --fs-xs: var(--step--2);
+    // --fs-sm: var(--step--1);
+    // --fs-ba: var(--step-0);
+    // --fs-lg: var(--step-1);
+    // --fs-h6: var(--step-2);
+    // --fs-h5: var(--step-3);
+    // --fs-h4: var(--step-4);
+    // --fs-h3: var(--step-5);
+    // --fs-h2: var(--step-6);
+    // --fs-h1: var(--step-7);
+    // --fs-d3: var(--step-8);
+    // --fs-d2: var(--step-9);
+    // --fs-d1: var(--step-10);
+   

@@ -1,0 +1,28 @@
+// lets talk modal
+@use "../../scss/breakpoints.scss" as *;
+@use "../../scss/units&scaling" as *;
+@use "../../scss/_logic.scss" as *;
+.modal {
+    position: fixed;
+    width: 100%;
+    @include cPropShort( height, 100, cvh );
+    // @include cPropShort( max-height, 100, cvh );
+    top: 0;
+    right: 0;
+    // bottom: 0;
+    background: var(--blue-300);
+    backdrop-filter: blur(3px);
+    transition: 3s ease-in-out;
+    z-index: 999;
+  }
+  .modal--lets-talk{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal--lets-talk__close-btn button{
+    transition: 3s ease-in-out;
+  }
+  .modal__title {
+    text-align: center;
+  }

@@ -1,0 +1,73 @@
+@use "../../scss/breakpoints.scss" as *;
+
+//mobile
+.hero {
+  width: 100%;
+  display: flex;
+  color: white;
+  flex-direction: column-reverse;
+}
+.left-side {
+
+}
+.what-who__title {
+  // font-size: var(--fs-800);
+}
+.what-who__btn {
+  // width: 6rem;
+  // height: 40px;
+  // font-size: var(--fs-100);
+}
+.right-side {
+
+  // flex: 1;
+  display: flex;
+  // justify-content: center;
+}
+.hero__infographic__bg{
+  top: -27%;
+  z-index: -66;
+  position: absolute;
+  width: 880px;
+  // max-width: 880px;
+  min-height: 880px;
+  flex-shrink: 0;
+  border-radius: 880px;
+  opacity: 0.61;
+  background: linear-gradient(180deg, rgba(14, 86, 224, 0.87) 0%, rgba(238, 221, 209, 0.87) 100%);
+  background-blend-mode: difference;
+  filter: blur(181.5px);
+  backdrop-filter: blur(15px);
+}
+.global-trading {
+  position: relative;
+}
+// tablets
+@media  ( min-width: $md-tablet ) {
+
+  .hero {
+
+  }
+  
+  .hero button {
+   
+  }
+  
+  .card--hero {
+    border-radius: 5px;
+  }
+  
+
+}
+
+@media ( min-width: $lg-tablet ) {
+  .hero { 
+    flex-direction: row;
+
+  }
+}
+
+@media ( min-width: $lg-desktop ) {
+
+}
+

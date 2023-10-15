@@ -1,0 +1,54 @@
+// $type-scale: (
+//         /* font-sizes */
+//         --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem),
+//         --fs-800: 3.5rem,
+//         --fs-700: 2.5rem,
+//         --fs-600: 2rem,
+//         --fs-500: 1.8rem,
+//         --fs-400: 1.6rem,
+//         --fs-300: 1.5rem,
+//         --fs-200: 1.286rem,
+//         --fs-100: 1rem,
+// )
+
+:root {
+    /* Step -2: 7.90px → 11.11px */
+    --step--2: clamp(0.49rem, calc( 0.45rem + calc(var(--cvw, 1vw) * 0.25) ), 0.69rem);
+  
+    /* Step -1: 8.89px → 13.33px */
+    --step--1: clamp(0.56rem, calc( 0.49rem + calc(var(--cvw, 1vw) * 0.35) ), 0.83rem);
+  
+    /* Step 0: 10.00px → 16.00px */
+    --step-0: clamp(0.63rem, calc( 0.54rem + calc(var(--cvw, 1vw) * 0.47) ), 1.00rem);
+  
+    /* Step 1: 11.25px → 19.20px */
+    --step-1: clamp(0.70rem, calc( 0.59rem + calc(var(--cvw, 1vw) * 0.62) ), 1.20rem);
+  
+    /* Step 2: 12.66px → 23.04px */
+    --step-2: clamp(0.79rem, calc( 0.65rem + calc(var(--cvw, 1vw) * 0.81) ), 1.44rem);
+  
+    /* Step 3: 14.24px → 27.65px */
+    --step-3: clamp(0.89rem, calc( 0.70rem + calc(var(--cvw, 1vw) * 1.04) ), 1.73rem);
+  
+    /* Step 4: 16.02px → 33.18px */
+    --step-4: clamp(1.00rem, calc( 0.76rem + calc(var(--cvw, 1vw) * 1.34) ), 2.07rem );
+  
+    /* Step 5: 18.02px → 39.81px */
+    --step-5: clamp(1.13rem, calc( 0.83rem + calc(var(--cvw, 1vw) * 1.70) ), 2.49rem);
+  
+    /* Step 6: 20.27px → 47.78px */
+    --step-6: clamp(1.27rem, calc( 0.89rem + calc(var(--cvw, 1vw) * 2.14) ), 2.99rem);
+  
+    /* Step 7: 22.81px → 57.33px */
+    --step-7: clamp(1.43rem, calc( 0.95rem + calc(var(--cvw, 1vw) * 2.69) ), 3.58rem);
+  
+    /* Step 8: 25.66px → 68.80px */
+    --step-8: clamp(1.60rem, calc( 1.01rem + calc(var(--cvw, 1vw) * 3.36) ), 4.30rem);
+  
+    /* Step 9: 28.87px → 82.56px */
+    --step-9: clamp(1.80rem, calc( 1.06rem + calc(var(--cvw, 1vw) * 4.18) ), 5.16rem);
+  
+    /* Step 10: 32.47px → 99.07px */
+    --step-10: clamp(2.03rem, calc( 1.11rem + calc(var(--cvw, 1vw) * 5.19) ), 6.19rem);
+  
+}

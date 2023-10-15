@@ -1,0 +1,123 @@
+@use "../../scss/logic.scss" as *;
+@use "../../scss/breakpoints.scss" as *;
+@use "../../scss/units&scaling" as *;
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: var(--fs-300);
+} 
+
+.header .brand a {
+  display: inline-block;
+}
+
+.brand svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: auto;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__nav {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar-nav__list {
+  margin: 0;
+  list-style: none;
+  text-align: right;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding: 1rem;
+  // justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.navbar-nav__item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.header li a {
+  display: inline-block;
+  color: var(--natural-grey-200);
+  padding: 0 1em;
+  text-decoration: none;
+  font-size: var(--fs-300);
+  text-transform: capitalize;
+}
+
+.header li a:hover {
+  color: var(--primary-orange-500);
+}
+
+
+
+
+// mobile menu
+.mobile-menu {
+  position: fixed;
+  width: 20%;
+  @include cPropShort( height, 100, cvh );
+  // @include cPropShort( max-height, 100, cvh );
+  top: 0;
+  right: 0;
+  // bottom: 0;
+  background: blue;
+  transition: 3s ease-in-out;
+  z-index: 999;
+}
+.navbar-nav__list--mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu__close-btn button{
+  transition: 3s ease-in-out;
+}
+
+.slide-bottom {
+  -webkit-animation: slide-lef 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+  30% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@media screen and ( min-width: $lg-tablet ) {
+  .navbar__nav {
+    display: block;
+  }
+}

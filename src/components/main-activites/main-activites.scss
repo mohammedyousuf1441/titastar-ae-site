@@ -1,0 +1,25 @@
+.main-activites {
+
+}
+
+.main-activites__grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax( 23%, 1fr ) );
+    gap: 0;
+    border-top: 2px dashed ;
+    border-right: 2px dashed;
+}
+.activite__card {
+ 
+    border-left: 2px dashed ;
+    border-bottom: 2px dashed ;
+}
+
+.activite__card:nth-last-child(1) {
+    // border-right: 1px dashed ;
+    grid-column: 1 / -1;
+    justify-content: center;
+}
+// .activite__card:nth-child(odd) {
+//     border-left: none;
+// }

@@ -1,0 +1,58 @@
+.page-grid {
+    // display: grid;
+    grid-template-rows: min-content 1fr;
+    // overflow-x: hidden;
+}
+
+// @each $color, $shades in $colors {
+//     @each $shade, $value in $shades {
+//       --clr-#{ $color }-#{  "" + $shade } : #{$value};
+//     }
+//   };
+
+ 
+ @mixin createGrid ( $columns_count, $rows_count, $row_height, $gap_width ) {
+     $columns_gaps_count: calc($columns_count - 1);
+     $gap_width: calc( $gap_width );
+     $gap-total: calc($columns_gaps_count * $gap_width);
+     $column_width:
+     calc( (var(--containerw) - $gap-total ) / $columns_count );
+     // rows number and height will be auto so gaps count only neaded for columns
+     display: grid;
+     // grid-template-columns: repeat( $columns_count, calc( 37px + 2vw ));
+     grid-template-columns: repeat( $columns_count, $column_width );
+     grid-auto-flow: row;
+     grid-auto-rows: calc( 24px + cvph(2) );
+     @if  $rows_count == auto and var(--containerw) == 1650px {
+         grid-auto-rows: clamp( $row_height, calc( $row_height + cvph(2) ), 80px);
+     }
+     gap: $gap_width;
+ }
+
+
+
+
+
+
+
+
+
+
+// .layout__grid {
+//     // display: grid;
+//     // grid-template-columns: repeat(6, calc( 37px + 2vw ));
+//     // grid-auto-flow: row;
+//     // grid-auto-rows: calc( 24px + 2vh );
+//     // gap: calc( 24px + 2vw );
+//     @include createGrid( 6, auto, 64px, 24px );
+//   }
+  
+//   header.header, main, footer {
+//     grid-column: 1 /-1;
+//   }
+// .layout__grid {
+//     // grid-template-columns: repeat(9, 158px );
+//     // grid-auto-rows: clamp( 64px, calc( 64px + 2vh ), 80px);
+//     // gap: 32px;
+//     @include createGrid( 9, auto, 64px, 32px );
+//   }

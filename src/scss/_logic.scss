@@ -1,0 +1,26 @@
+// @function vpw( $varname, $amount  ) {
+//   @return calc(var(--#{ $varname }, 1vw) * $amount);
+//  }
+
+
+//   this function should shortand calc(var(--cvh, 1vh) * 100); and cover all the
+//  4 --wvw, --wvh, --cvw, --cvh
+
+@function cvph( $amount ) {
+    @return calc(var(--cvh, 1vh) * $amount);
+  }
+ 
+   @function cvpw( $amount ) {
+     @return calc(var(--cvw, 1vw) * $amount);
+  }
+ //  =========================
+   @mixin cPropShort ( $propName, $value, $unitType) {
+     @if $unitType == cvh {
+         #{$propName} : #{$value}vh;
+         #{$propName} : cvph($value);
+     }
+     @if $unitType == cvw {
+         #{$propName} : #{$value}vw;
+         #{$propName} : cvpw($value);
+     }
+   }

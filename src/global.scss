@@ -1,0 +1,246 @@
+@use "./scss/_logic" as *;
+@use "./scss/_units&scaling" as *;
+@use "./scss/_breakpoints" as *;
+@use  "./scss/_reset" as * ;
+@use  "./scss/_colors" as * ;
+@use "./scss/_typography" as *;
+@use "./scss/_type-scale" as *;
+
+@use "./scss/layouts/grids" as *;
+@use "./scss/layouts/cluster" as *;
+@use "./scss/layouts/sidebar" as *;
+@use "./scss/layouts/switcher" as *;
+
+
+@tailwind base;
+// @tailwind components;
+@tailwind utilities;
+
+body {
+  background: var(--natural-grey-900);
+  color: var(--natural-white);
+}
+
+// composition
+// .flow > * + * { }
+// .flow > :where(:not(:last-child)) {
+//   margin-bottom: 1em;
+// }
+.flow-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+.flow-side-section > * + * {
+  // margin-top: var(--flow-space, 1em);
+
+}
+.flow-flex-row {
+  display: flex;
+  // padding: var(--space-2 , 2em);
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.flow-flex-col {
+  display: flex;
+  // padding-x: var(--space-2 , 2em);
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-xl, 1em);
+  justify-content: flex-start;
+}
+.flow-row-grid {
+  display: grid;
+  gap: var(--space-l, 1em);
+}
+.flow-grid-featured {
+  display: grid;
+  gap: var(--space-l, 1em);
+  grid-template-columns: repeat( 7, minmax(max-content, 1fr) );
+  grid-template-rows: repeat( 2 , minmax(max-content, 1fr) );
+  
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+section,
+header,
+footer {
+  @include cPropShort( max-width, 100, cvw );
+}
+
+//svg
+svg {
+  max-width: 100%;
+}
+
+// utility
+.is-active {
+  color: var(--primary-orange-500);
+}
+.gradiant-redish {
+  background: linear-gradient(133deg, #A31616 0%, #FA5757 100%);
+}
+// tailwind utilites
+
+.headtext-main {
+  font-family: var(--font-secondary);
+  letter-spacing: 0.05em;
+  font-size: var( --step-6 );
+  font-weight: var( --fw-black );
+  text-transform: uppercase;
+}
+.headtext-section {
+  font-family: var(--font-main);
+  font-size: var(--step-6);
+  font-weight: var(--fw-bold);
+}
+.text-shadow-card {
+  text-shadow: var(--text-shadow-card-title);
+}
+.drop-shadow-desktop {
+  filter: var( --drop-shadow-project-desktop );
+}
+.drop-shadow-tablet {
+  filter: var( --drop-shadow-project-tablet );
+}
+.drop-shadow-mobile {
+  filter: var( --drop-shadow-project-mobile );
+}
+// @include cPropShort( min-height, 100, cvh  );
+// UTOPIA
+/* @link https://utopia.fyi/grid/calculator?c=284,10,1.2,1568,16,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=xs,l,3xl,12 */
+
+:root {
+  --grid-max-width: 98.00rem;
+  --grid-gutter: var(--space-xs-l, clamp(0.50rem, calc(0.17rem + cvpw(1.87)), 2.00rem));
+  --grid-columns: 12;
+}
+
+.page {
+  position: relative;
+  // overflow: auto;
+  // display: inline-block;
+  overflow: hidden;
+  @include cPropShort( width, 100, cvw );
+  @include cPropShort( max-width, 100, cvw );
+}
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
+.main-grid {
+  display: grid;
+  gap: var(--space-5xl-6xl, clamp(4rem, calc(1rem + cvpw(3.87)), 10rem));
+}
+
+/* end  */
+
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     // grid-auto-flow: row;
+//     @include cPropShort( max-width, 100, cvw );
+//     margin-left: calc( 12px + cvpw(2) );
+//     margin-right: calc( 12px + cvpw(2) );
+// }
+.first-perspective-bg {
+  position: absolute;
+  left: 0;
+  z-index: -999;
+  width: 100%;
+  height: 200vh;
+  opacity: 0.55;
+  background: linear-gradient(180deg, rgba(192, 196, 202, 0.55) 0%, rgba(130, 159, 160, 0.25) 66.67%, rgba(255, 232, 163, 0.34) 96.88%);
+  backdrop-filter: blur(24px);
+}
+
+// Blocks
+
+//cards
+.card {
+  // display: flex;
+  // flex: 2 3 auto;
+  // justify-content: center;
+  // align-items: flex-end;
+  // height: 100%;
+}
+.card__header {
+  position: absolute;
+  z-index: 100;
+}
+.card__body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+}
+
+@media (min-width: $md-tablet) {
+  // .container {
+  //   margin-left: calc( 32px + cvpw(2) );
+  //   margin-right: calc( 32px + cvpw(2) );
+  // }
+  .headtext-main {
+    font-size: var( --step-7 );
+  }
+  // .flow-side-section {
+  //   // padding: 1em;
+  // }
+
+}
+
+@media (min-width: $lg-tablet ) {
+  // .container {
+  //   margin-left: calc( 48px + cvpw(2) );
+  //   margin-right: calc( 48px + cvpw(2) );
+  // }
+  .flow-side-section {
+    gap: var(--space-l);
+  }
+}
+
+@media  (min-width: $laptop ) {
+
+}
+
+@media  (min-width: $md-desktop ) {
+
+}
+
+// DESKTOP
+@media  ( min-width: $lg-desktop ) { 
+  .page {
+    // place-content: center;
+  }
+  
+  .container {
+    margin-left: calc( 180px + cvpw(2) );
+    margin-right: calc( 180px + cvpw(2) );
+    justify-items: center;
+    max-width: 1560px;
+  }
+  .headtext-main {
+    //font-size: var( --step-10 );
+  }
+
+}
+@media (min-width: 2000px) {
+  // .u-container{
+  //   --grid-max-width: 126.00rem;
+  // }
+}
+//components
+// @import './components/hero/herocollecard.scss' ;
+// @import './components/header/header.scss';
+// @import './components/hero/hero.scss' ;
+

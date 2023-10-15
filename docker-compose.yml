@@ -1,0 +1,17 @@
+version: '3'
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/titastar/database
+      - ./uploads:/titastar/uploads
+    environment:
+      KEY: '67745fae-0a2b-41a2-96a9-b47c83fe92a9'
+      SECRET: '7b99c4cb-1b2a-4035-b887-ec61e0bde34f'
+      ADMIN_EMAIL: 'kingthunder797@gmail.com'
+      ADMIN_PASSWORD: 'd1r3ctu5'
+      DB_CLIENT: 'sqlite3'
+      DB_FILENAME: '/directus/database/data.db'
+      WEBSOCKETS_ENABLED: true

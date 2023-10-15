@@ -1,0 +1,88 @@
+directus_api_token: "RIp5O_Zubwfiu-Ks00115mcTwkAMxiUn"
+ionons_vps_host_ip: "74.208.110.3";
+ionons_vps_password: "x8I1WPXM";
+
+path: /var/log/mongodb/mongod.log
+
+db.createUser(
+{
+user: "titastar_admin",
+pwd: passwordPrompt(), // or cleartext password
+roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+}
+)
+
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/titastar.ae/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name titastar.ae www.titastar.ae;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+
+
+  ssl:
+   mode: requireSSL
+   PEMKeyFile: /etc/letsencrypt/live/titastar.ae/privkey.pem
+   CAFile: /etc/letsencrypt/live/titastar.ae/fullchain.pem
+
+   mode: requireTLS
+   certificateKeyFile: /etc/letsencrypt/live/titastar.ae/privkey.pem
+   CAFile: /etc/letsencrypt/live/titastar.ae/fullchain.pem
+
+
+   sudo cat /etc/letsencrypt/archive/titastar.ae/{fullchain1.pem,privkey1.pem} | sudo tee /etc/ssl/mongo.pem
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+
+# Define variables
+DOMAIN=titastar.ae
+
+# combine latest letsencrypt files for mongo
+
+# find latest fullchain*.pem
+newestFull=$(ls -v /etc/letsencrypt/archive/"$DOMAIN"/fullchain*.pem | tail -n 1)
+echo "$newestFull"
+
+# find latest privkey*.pem
+newestPriv=$(ls -v /etc/letsencrypt/archive/"$DOMAIN"/privkey*.pem | tail -n 1)
+echo "$newestPriv"
+
+# combine to mongo.pem
+cat {$newestFull,$newestPriv} | tee /etc/ssl/mongo.pem
+
+# set rights for mongo.pem
+chmod 600 /etc/ssl/mongo.pem
+chown mongodb:mongodb /etc/ssl/mongo.pem
+
+# restart mongo
+service mongod restart
+
+
+######
+ chmod +x renew-mongo-cert.sh
+
+
+docker run -p 80:80 -p 443:443 -p 3000:3000 -e ACCEPTED_TERMS=true -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover
+
+
+
+//blog
+docker run -p 80:80 -p 443:443 -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover
+.
